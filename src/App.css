@@ -1,0 +1,347 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f3ee;
+  color: #242424;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #090909, #302515);
+}
+
+.login-card {
+  background: #fff;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 30px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 15px 40px #0006;
+}
+
+.logo {
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+.login-card h1,
+.brand h2 {
+  color: #bd963d;
+  letter-spacing: 3px;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin: 10px 0 30px;
+}
+
+.login-card h2 {
+  margin-bottom: 10px;
+}
+
+.login-card form {
+  text-align: left;
+}
+
+.login-card label {
+  display: block;
+  margin: 15px 0 8px;
+  font-weight: bold;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.login-card button,
+.portal button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 25px;
+  background: #bd963d;
+  color: #111;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.footer {
+  margin-top: 30px;
+  color: #999;
+  font-size: 11px;
+}
+
+.student-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.student-sidebar {
+  width: 250px;
+  background: #111;
+  color: white;
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.brand {
+  text-align: center;
+  padding: 15px 5px 30px;
+}
+
+.brand span {
+  font-size: 38px;
+}
+
+.brand small {
+  color: #bd963d;
+  letter-spacing: 2px;
+}
+
+.menu-label {
+  color: #bd963d;
+  font-size: 11px;
+  margin: 15px 10px;
+}
+
+.menu-button,
+.menu-active,
+.logout-button {
+  border: none;
+  padding: 14px;
+  margin: 4px 0;
+  text-align: left;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.menu-button {
+  background: transparent;
+  color: #ddd;
+}
+
+.menu-button:hover {
+  background: #292929;
+}
+
+.menu-active {
+  background: #bd963d;
+  color: #111;
+  font-weight: bold;
+}
+
+.logout-button {
+  margin-top: auto;
+  background: #382c19;
+  color: #f0c76b;
+}
+
+.student-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.topbar {
+  background: white;
+  padding: 22px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.topbar h2 {
+  color: #222;
+}
+
+.topbar small {
+  color: #999;
+}
+
+.student-user {
+  color: #9b762a;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.page-content {
+  padding: 30px;
+}
+
+.welcome {
+  background: linear-gradient(120deg, #171717, #49371a);
+  color: white;
+  padding: 30px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+}
+
+.welcome h2 {
+  color: #e3bd63;
+  margin-bottom: 10px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.stat-card,
+.portal-card {
+  background: white;
+  padding: 23px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 15px #00000008;
+}
+
+.stat-card span {
+  font-size: 28px;
+}
+
+.stat-card h3 {
+  font-size: 14px;
+  color: #777;
+  margin: 12px 0;
+}
+
+.stat-card h1 {
+  color: #b18a35;
+}
+
+.portal-card h2 {
+  color: #9b762a;
+  margin-bottom: 22px;
+}
+
+.portal-card p {
+  margin: 15px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th {
+  background: #211c12;
+  color: #e3bd63;
+  text-align: left;
+}
+
+th, td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.notice {
+  color: #9b762a;
+}
+
+.portal-footer {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-size: 12px;
+}
+
+@media (max-width: 850px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .student-sidebar {
+    width: 190px;
+  }
+}
+
+@media (max-width: 600px) {
+  .student-layout {
+    flex-direction: column;
+  }
+
+  .student-sidebar {
+    width: 100%;
+  }
+
+  .student-sidebar button {
+    text-align: center;
+  }
+
+  .logout-button {
+    margin-top: 10px;
+  }
+
+  .page-content {
+    padding: 15px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .topbar {
+    padding: 18px;
+  }
+
+  .portal-card {
+    overflow-x: auto;
+  }
+
+  th, td {
+    padding: 10px;
+    white-space: nowrap;
+  }
+}
+.portal-card p {
+  padding: 15px;
+  margin: 12px 0;
+  background: #f8f5ed;
+  border-left: 4px solid #bd963d;
+  border-radius: 7px;
+  color: #222;
+  font-size: 15px;
+}.student-info {
+  background: #111;
+  color: #d4af37;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+}
+
+.student-info h3 {
+  margin-bottom: 15px;
+  color: #d4af37;
+}
+
+.student-info p {
+  padding: 8px 0;
+  border-bottom: 1px solid #55451d;
+  color: white;
+}
