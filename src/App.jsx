@@ -6,6 +6,7 @@ function App() {
   const [studentId, setStudentId] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
+  const [studentData, setStudentData] = useState(null);
   const [activePage, setActivePage] = useState("Dashboard");
 
   const menu = ["Dashboard", "My Profile", "My Courses", "Timetable", "Attendance", "Results", "Fee Payment", "Announcements"];
