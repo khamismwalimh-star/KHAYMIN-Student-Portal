@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "dependencies": {"@supabase/supabase-js": "^2.57.0",
     "@supabase/supabase-js": "^2.57.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
