@@ -10,25 +10,43 @@ function App() {
   const [activePage, setActivePage] = useState("Dashboard");
 
   const menu = ["Dashboard", "My Profile", "My Courses", "Timetable", "Attendance", "Results", "Fee Payment", "Announcements"];
+async function handleLogin(e) {
+  e.preventDefault();
 
-  async function handleLogin(e) {
-    e.preventDefault();
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: studentId.trim(),
+    password
+  });
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email: studentId.trim(),
-      password
-    });
-
-    if (error) {
-      alert("Login failed: " + error.message);
-      return;
-    }
-
-    setLoggedIn(true);
+  if (error) {
+    alert(error.message);
+    return;
   }
 
+  const { data: record, error: dbError } = await supabase
+    .from("students")
+    .select("*")
+    .eq("user_id", data.user.id)
+    .single();
+
+  if (dbError) {
+    alert("Student record not found: " + dbError.message);
+    await supabase.auth.signOut();
+    return;
+  }
+
+  setStudentData(record);
+  setLoggedIn(true);
+}
+  function showContent() {
   function showContent() {
     if (activePage === "My Profile") return <div className="portal-card"><h2>My Profile</h2><p>Email: {studentId}</p><p>Academic Year: 2026/2027</p><p>Status: Active</p></div>;
+    if (activePage === "My Courses") return <div className="portal-card"><h2>My Courses</h2><p>BIT101 - Introduction to IT</p><p>BIT102 - Computer Programming</p><p>BIT103 - Database Systems</p></div>;
+    if (activePage === "Timetable") return <div className="portal-card"><h2>Class Timetable</h2><p>Monday: 08:00 - 10:00</p><p>Tuesday: 10:00 - 12:00</p><p>Wednesday: 08:00 - 10:00</p></div>;
+    if (activePage === "Attendance") return <div className="portal-card"><h2>Attendance</h2><h1>85%</h1></div>;
+    if (activePage === "Results") return <div className="portal-card"><h2>Results</h2><p>Introduction to IT: B+</p><p>Programming: A</p><p>Database Systems: B</p></div>;
+    if (activePage === "Fee Payment") return <div className="portal-card"><h2>Fee Payment</h2><p>Total Fees: 1,500,000</p><p>Paid: 1,000,000</p><p>Balance: 500,000</p></div>;
+    if (activePage === "Announcements") return <div className="portal-card"><h2>Announcements</h2><p>Welcome to KHAYMIN Student Portal.</p></div>;
     if (activePage === "My Courses") return <div className="portal-card"><h2>My Courses</h2><p>BIT101 - Introduction to IT</p><p>BIT102 - Computer Programming</p><p>BIT103 - Database Systems</p></div>;
     if (activePage === "Timetable") return <div className="portal-card"><h2>Class Timetable</h2><p>Monday: 08:00 - 10:00</p><p>Tuesday: 10:00 - 12:00</p><p>Wednesday: 08:00 - 10:00</p></div>;
     if (activePage === "Attendance") return <div className="portal-card"><h2>Attendance</h2><h1>85%</h1></div>;
